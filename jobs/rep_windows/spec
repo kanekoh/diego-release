@@ -25,6 +25,7 @@ templates:
 
 packages:
   - rep_windows
+  - healthcheck
 
 properties:
   diego.rep.listen_addr:
