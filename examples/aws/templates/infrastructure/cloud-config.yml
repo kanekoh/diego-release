@@ -1,0 +1,6 @@
+---
+azs: (( merge ))
+vm_types: (( merge ))
+compilation: (( merge ))
+networks: (( merge ))
+networks: (( merge ))

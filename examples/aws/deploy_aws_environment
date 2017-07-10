@@ -411,6 +411,13 @@ spiff merge \
   stubs/aws-resources.yml \
   > stubs/cf-mysql/iaas-settings.yml
 
+# generate cloud config stub
+spiff merge \
+  $SCRIPT_DIR/templates/infrastructure/cloud-config.yml \
+  $SCRIPT_DIR/templates/infrastructure/cloud-config-internal.yml \
+  stubs/aws-resources.yml \
+  > stubs/cloud-config.yml
+
 # generate datadog firehose nozzle manifest if the user stubs exist
 if [ -d stubs/datadog-firehose-nozzle ]; then
     spiff merge \
