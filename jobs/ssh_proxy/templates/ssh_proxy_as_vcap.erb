@@ -6,7 +6,7 @@ CONF_DIR=/var/vcap/jobs/ssh_proxy/config
 
 PIDFILE=$RUN_DIR/ssh_proxy.pid
 
-/var/vcap/packages/ssh_proxy/bin/ssh-proxy ${bbs_sec_flags} \
+/var/vcap/packages/ssh_proxy/bin/ssh-proxy \
   -config=$CONF_DIR/ssh_proxy.json \
   2> >(tee -a $LOG_DIR/ssh_proxy.stderr.log | logger -p user.error -t vcap.ssh-proxy) \
   1> >(tee -a $LOG_DIR/ssh_proxy.stdout.log | logger -p user.info -t vcap.ssh-proxy) & echo $! > $PIDFILE

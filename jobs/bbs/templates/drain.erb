@@ -2,6 +2,12 @@
 
 set -e
 
+<% if p("bpm.enabled") %>
+/var/vcap/packages/bpm/bin/bpm stop bbs 1>&2 || true
+echo "0"
+exit 0
+
+<% else %>
 RUN_DIR=/var/vcap/sys/run/bbs
 PIDFILE=$RUN_DIR/bbs.pid
 LOG_DIR=/var/vcap/sys/log/bbs
@@ -44,3 +50,4 @@ fi
 
 echo "$(date): drain triggered"
 kill_and_wait $PIDFILE
+<% end %>
